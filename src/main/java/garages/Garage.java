@@ -36,7 +36,9 @@ public class Garage {
 	 * @return le nom du garage
 	 */
 	// La méthode getName() est générée par @Getter
-
+	public String getName() {
+		return name;
+	}
 	/**
 	 * Modifie le nom du garage.
 	 * 
@@ -44,11 +46,22 @@ public class Garage {
 	 * @throws NullPointerException si le nouveau nom est null
 	 */
 	// La méthode setName() est générée par @Setter
+	public void setName(String name) {
+		if (null == name) {
+			throw new IllegalArgumentException("name is null");
+		}
 
+		this.name = name;
+	}
 	/**
 	 * Retourne une représentation sous forme de chaîne de caractères du garage.
 	 * 
 	 * @return une chaîne de caractères représentant le garage, incluant son nom
 	 */
 	// La méthode toString() est générée par @ToString
+	@Override
+	public String toString() {
+		return "Garage " + name;
+	}
+
 }
