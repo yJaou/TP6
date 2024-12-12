@@ -1,67 +1,51 @@
 package garages;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
-
 /**
- * Représente un garage où les voitures peuvent être stationnées.
+ * Représente un garage avec un nom.
  */
-@Getter // Génère les getters pour tous les champs
-@ToString // Génère la méthode toString()
-@RequiredArgsConstructor // Génère un constructeur avec tous les champs "final" ou annotés avec @NonNull
 public class Garage {
 
-	/**
-	 * Le nom du garage.
-	 * Ce champ ne peut pas être null.
-	 */
-	@NonNull
-	@Setter // Génère le setter pour ce champ
+	// Le nom du garage
 	private String name;
 
 	/**
-	 * Crée un nouveau garage avec le nom spécifié.
-	 * 
-	 * @param name le nom du garage (ne peut pas être null)
-	 * @throws NullPointerException si le nom est null
+	 * Constructeur de la classe `Garage`.
+	 *
+	 * @param s le nom du garage (ne peut pas être null)
 	 */
-	// Le constructeur est généré par @RequiredArgsConstructor
+	public Garage(String s) {
+		name = s;
+	}
 
 	/**
 	 * Retourne le nom du garage.
-	 * 
+	 *
 	 * @return le nom du garage
 	 */
-	// La méthode getName() est générée par @Getter
 	public String getName() {
 		return name;
 	}
+
 	/**
 	 * Modifie le nom du garage.
-	 * 
+	 *
 	 * @param name le nouveau nom du garage (ne peut pas être null)
-	 * @throws NullPointerException si le nouveau nom est null
+	 * @throws IllegalArgumentException si le nom est null
 	 */
-	// La méthode setName() est générée par @Setter
 	public void setName(String name) {
-		if (null == name) {
+		if (name == null) {
 			throw new IllegalArgumentException("name is null");
 		}
-
 		this.name = name;
 	}
+
 	/**
-	 * Retourne une représentation sous forme de chaîne de caractères du garage.
-	 * 
+	 * Retourne une représentation en chaîne de caractères de l'objet `Garage`.
+	 *
 	 * @return une chaîne de caractères représentant le garage, incluant son nom
 	 */
-	// La méthode toString() est générée par @ToString
 	@Override
 	public String toString() {
 		return "Garage " + name;
 	}
-
 }
